@@ -17,7 +17,7 @@ export function Footer() {
       <Container className="grid gap-12 py-16 sm:grid-cols-[1.5fr_1fr_1fr]">
         <div>
           <Link href="/" className="flex items-center gap-2" aria-label="Kuvah home">
-            <Image src="/Kuvah Icon black.png" alt="" width={28} height={28} />
+            <Image src="/Kuvah Icon black.png" alt="" width={28} height={32} />
             <span className="font-display text-lg font-semibold text-ink">Kuvah Technologies</span>
           </Link>
           <p className="mt-4 max-w-xs text-base text-ink-muted">

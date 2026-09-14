@@ -26,7 +26,7 @@ export function Nav() {
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-[1320px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2" aria-label="Kuvah home">
-          <Image src="/Kuvah Icon black.png" alt="" width={28} height={28} priority />
+          <Image src="/Kuvah Icon black.png" alt="" width={28} height={32} priority />
           <span className="font-display text-lg font-semibold text-ink">Kuvah</span>
         </Link>
 
