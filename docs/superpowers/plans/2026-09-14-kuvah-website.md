@@ -2121,7 +2121,7 @@ git commit -m "feat: assemble the homepage from its section components"
 Create `app/services/page.test.tsx`:
 ```tsx
 import { describe, it, expect } from "vitest";
-import { render, screen, container as _c } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ServicesPage from "./page";
 
 describe("ServicesPage", () => {
