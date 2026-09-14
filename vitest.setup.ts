@@ -35,7 +35,7 @@ class MockIntersectionObserver implements IntersectionObserver {
   }
 }
 
-global.IntersectionObserver = MockIntersectionObserver as any;
+global.IntersectionObserver = MockIntersectionObserver;
 
 if (!window.matchMedia) {
   window.matchMedia = (query: string) =>

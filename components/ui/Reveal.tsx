@@ -12,6 +12,12 @@ export function Reveal({ children, className }: { children: ReactNode; className
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
+      // Syncing to a browser-only media query after mount, not deriving
+      // state from arbitrary render logic — the alternative (computing
+      // this in a useState lazy initializer for an SSR-safe default) would
+      // read `window` during hydration and diverge from the server-rendered
+      // "false" markup, producing a hydration mismatch instead.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisible(true);
       return;
     }
