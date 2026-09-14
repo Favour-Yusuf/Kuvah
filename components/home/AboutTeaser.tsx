@@ -1,0 +1,36 @@
+import { Container } from "@/components/ui/Container";
+import { LinkButton } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
+
+export function AboutTeaser() {
+  return (
+    <section className="bg-ink py-20 text-paper sm:py-28">
+      <Container className="max-w-[760px]">
+        <Reveal>
+          <h2 className="font-display text-3xl font-semibold sm:text-4xl">
+            We didn&apos;t start Kuvah because the world needed another technology company.
+          </h2>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/70">
+            <p>Technology is everywhere.</p>
+            <p>But useful technology is still difficult to build.</p>
+            <p>
+              It takes more than knowing how to write code. It requires understanding people,
+              asking better questions and caring about what happens after something goes live.
+            </p>
+            <p>That&apos;s what we&apos;re building Kuvah around.</p>
+            <p>A company that takes the work seriously.</p>
+            <p>A company that stays curious.</p>
+            <p>A company that understands before assuming.</p>
+            <p>
+              And a company that believes the things we build should leave people and businesses
+              better than we found them.
+            </p>
+          </div>
+          <LinkButton href="/about" variant="secondary-inverse" className="mt-8">
+            More About Kuvah
+          </LinkButton>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
