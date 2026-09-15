@@ -33,7 +33,9 @@
     outline-offset: 2px;
   }
 
-  .bg-ink :focus-visible {
+  .bg-ink :focus-visible,
+  .bg-sky-deep :focus-visible,
+  .bg-topaz-deep :focus-visible {
     outline-color: var(--color-topaz);
   }
 
