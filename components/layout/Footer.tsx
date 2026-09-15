@@ -6,6 +6,7 @@ import { socialLinks } from "@/lib/data/social";
 const FOOTER_LINKS = [
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Insights", href: "/insights" },
   { label: "Start a Project", href: "/start-a-project" },
