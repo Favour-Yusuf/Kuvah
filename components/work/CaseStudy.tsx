@@ -1,15 +1,30 @@
+import type { ComponentType } from "react";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
 import type { Project } from "@/lib/data/projects";
+import { OnPointGraphic } from "@/components/work/graphics/OnPointGraphic";
+import { DillonGasGraphic } from "@/components/work/graphics/DillonGasGraphic";
+import { WhatsAppGraphic } from "@/components/work/graphics/WhatsAppGraphic";
+
+const GRAPHICS: Record<string, ComponentType<{ className?: string }>> = {
+  "onpoint-clothing": OnPointGraphic,
+  "dillon-gas": DillonGasGraphic,
+  "whatsapp-automation-platform": WhatsAppGraphic,
+};
 
 export function CaseStudy({ project }: { project: Project }) {
-  const { client, headline, narrative, focusAreas } = project;
+  const { client, headline, narrative, focusAreas, slug } = project;
+  const Graphic = GRAPHICS[slug];
 
   return (
     <article>
+      <div className="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[21/9]">
+        <Graphic className="h-full w-full object-cover" />
+      </div>
+
       <Container className="py-16 sm:py-24">
         <p className="text-sm font-semibold text-ink-muted">{client}</p>
-        <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold text-ink sm:text-5xl">
+        <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold text-ink sm:text-6xl">
           {headline}
         </h1>
       </Container>
