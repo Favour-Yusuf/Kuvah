@@ -8,9 +8,9 @@ describe("ServicesIndex", () => {
     const headings = screen.getAllByRole("heading", { level: 3 }).map((el) => el.textContent);
     expect(headings).toEqual(["Digital Experiences", "Digital Products", "Systems & Automation"]);
 
-    expect(screen.getByText("01")).toBeInTheDocument();
-    expect(screen.getByText("02")).toBeInTheDocument();
-    expect(screen.getByText("03")).toBeInTheDocument();
+    expect(screen.getAllByText("01").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("02").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("03").length).toBeGreaterThan(0);
 
     expect(screen.getByRole("link", { name: "Explore Digital Experiences" })).toHaveAttribute(
       "href",

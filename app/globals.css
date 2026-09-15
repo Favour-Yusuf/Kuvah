@@ -36,6 +36,11 @@
   .bg-ink :focus-visible {
     outline-color: var(--color-topaz);
   }
+
+  .numeral-watermark {
+    font-size: clamp(6rem, 22vw, 14rem);
+    line-height: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
