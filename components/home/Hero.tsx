@@ -14,14 +14,14 @@ export function Hero() {
       <Container className="relative">
         <Reveal className="delay-150">
           <h1 className="max-w-4xl font-display text-[clamp(2.75rem,9vw,7.5rem)] font-bold leading-[0.98] tracking-tight text-ink">
-            Technology is
+            Technology is{" "}
             <br />
-            easy to build.
+            easy to build.{" "}
             <br />
             <span className="relative inline-block">
-              Building the
+              Building the{" "}
               <br />
-              right thing is
+              right thing is{" "}
               <br />
               harder.
             </span>
