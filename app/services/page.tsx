@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { TagStrip } from "@/components/ui/TagStrip";
 import { services } from "@/lib/data/services";
 
 export const metadata: Metadata = {
@@ -11,9 +12,9 @@ export const metadata: Metadata = {
 };
 
 const BAND_STYLES = {
-  "digital-experiences": { bg: "bg-paper", text: "text-ink", muted: "text-ink-muted", watermark: "text-ink/5", button: "primary" as const },
-  "digital-products": { bg: "bg-mist", text: "text-ink", muted: "text-ink-muted", watermark: "text-ink/5", button: "primary" as const },
-  "systems-automation": { bg: "bg-sky-deep", text: "text-paper", muted: "text-paper/70", watermark: "text-paper/10", button: "invert" as const },
+  "digital-experiences": { bg: "bg-paper", text: "text-ink", muted: "text-ink-muted", watermark: "text-ink/5", button: "primary" as const, tileBorder: "border-ink/15" },
+  "digital-products": { bg: "bg-mist", text: "text-ink", muted: "text-ink-muted", watermark: "text-ink/5", button: "primary" as const, tileBorder: "border-ink/15" },
+  "systems-automation": { bg: "bg-sky-deep", text: "text-paper", muted: "text-paper/70", watermark: "text-paper/10", button: "invert" as const, tileBorder: "border-paper/20" },
 } as const;
 
 export default function ServicesPage() {
@@ -32,6 +33,8 @@ export default function ServicesPage() {
           </div>
         </Container>
       </section>
+
+      <TagStrip labels={services.map((service) => service.name)} tone="topaz" />
 
       {services.map((service, index) => {
         const style = BAND_STYLES[service.slug];
@@ -54,9 +57,9 @@ export default function ServicesPage() {
                   ))}
                 </div>
 
-                <div className="mt-12 grid gap-8 sm:grid-cols-2">
+                <div className="mt-12 grid gap-4 sm:grid-cols-2">
                   {service.pageCapabilities.map((capability) => (
-                    <div key={capability.name}>
+                    <div key={capability.name} className={`border p-5 ${style.tileBorder}`}>
                       <h3 className={`font-display text-xl font-semibold ${style.text}`}>{capability.name}</h3>
                       {capability.description && (
                         <p className={`mt-2 text-base leading-relaxed ${style.muted}`}>{capability.description}</p>
