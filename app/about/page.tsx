@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export const metadata: Metadata = {
   title: "About",
@@ -28,14 +29,15 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-paper py-20 sm:py-28">
-        <Container width="narrow">
-          <h1 className="font-display text-4xl font-semibold text-ink sm:text-5xl">
+      <section className="relative overflow-hidden bg-ink py-24 text-paper sm:py-32">
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-topaz-deep [clip-path:polygon(40%_0,100%_0,100%_100%,0_100%)]" />
+        <Container width="narrow" className="relative">
+          <h1 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
             We believe the work behind technology matters.
           </h1>
-          <div className="mt-8 space-y-4 text-lg leading-relaxed text-ink-muted">
+          <div className="mt-8 space-y-4 text-lg leading-relaxed text-paper/70">
             <p>Kuvah Technologies was built around a simple belief:</p>
-            <p className="font-medium text-ink">Technology should serve a purpose.</p>
+            <p className="text-xl font-medium text-paper">Technology should serve a purpose.</p>
             <p>There is no shortage of things being built.</p>
             <p>New apps. New websites. New platforms. New tools.</p>
             <p>But building something is not the same as building something useful.</p>
@@ -56,15 +58,20 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <SectionDivider from="bg-ink" to="bg-mist" />
+
       <section className="bg-mist py-20 sm:py-28">
         <Container>
-          <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h2 className="font-display text-3xl font-semibold text-ink sm:text-5xl">
             What guides our work
           </h2>
           <div className="mt-12 grid gap-10 sm:grid-cols-2">
-            {VALUES.map((value) => (
-              <div key={value.name}>
-                <h3 className="font-display text-xl font-semibold text-ink">{value.name}</h3>
+            {VALUES.map((value, index) => (
+              <div key={value.name} className="border-t border-ink/15 pt-6">
+                <span className="font-display text-sm font-semibold text-topaz-deep">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-2 font-display text-2xl font-semibold text-ink">{value.name}</h3>
                 <p className="mt-2 text-base leading-relaxed text-ink-muted">{value.body}</p>
               </div>
             ))}
@@ -72,10 +79,12 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-ink py-20 text-paper sm:py-28">
+      <section className="bg-topaz-deep py-24 text-paper sm:py-32">
         <Container width="narrow">
-          <h2 className="font-display text-3xl font-semibold sm:text-4xl">Where we&apos;re going</h2>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/70">
+          <h2 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
+            Where we&apos;re going
+          </h2>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/80">
             <p>
               We&apos;re building Kuvah into a technology company that creates useful products,
               supports ambitious businesses and continues to explore better ways of solving
@@ -85,7 +94,7 @@ export default function AboutPage() {
             <p>Still learning.</p>
             <p>Still figuring things out.</p>
             <p>But we&apos;re serious about the work.</p>
-            <p className="font-medium text-paper">And we&apos;re just getting started.</p>
+            <p className="text-xl font-medium text-paper">And we&apos;re just getting started.</p>
           </div>
         </Container>
       </section>

@@ -4,13 +4,13 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function AboutTeaser() {
   return (
-    <section className="bg-ink py-20 text-paper sm:py-28">
+    <section className="bg-ink py-24 text-paper sm:py-32">
       <Container width="narrow">
         <Reveal>
-          <h2 className="font-display text-3xl font-semibold sm:text-4xl">
+          <h2 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
             We didn&apos;t start Kuvah because the world needed another technology company.
           </h2>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/70">
+          <div className="mt-8 max-w-2xl space-y-4 text-lg leading-relaxed text-paper/70">
             <p>Technology is everywhere.</p>
             <p>But useful technology is still difficult to build.</p>
             <p>
