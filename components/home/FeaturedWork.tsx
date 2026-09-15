@@ -25,50 +25,37 @@ export function FeaturedWork() {
             Different businesses. Different challenges. Different ways of approaching the work.
           </p>
         </Reveal>
-      </Container>
 
-      <div className="mt-16">
-        {projects.map((project, index) => {
-          const Graphic = GRAPHICS[project.slug];
-          const reversed = index % 2 === 1;
-          return (
-            <Reveal key={project.slug} className="border-t border-ink/10 py-14 sm:py-20">
-              <Container>
-                <div
-                  className={`grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16 ${reversed ? "lg:[&>*:first-child]:order-2" : ""}`}
-                >
-                  <div className="group relative aspect-[4/3] overflow-hidden">
-                    {Graphic && (
-                      <Graphic className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-ink-muted">{project.client}</p>
-                    <h3 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
-                      {project.headline}
-                    </h3>
-                    <div className="mt-5 space-y-3 text-base leading-relaxed text-ink-muted">
-                      {narrativeParagraphs(project).map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
-                      ))}
-                    </div>
-                    <ul className="mt-5 flex flex-wrap gap-2 text-sm text-ink-muted">
-                      {project.featuredTags.map((tag) => (
-                        <li key={tag} className="rounded-full border border-ink/15 px-3 py-1">
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-                    <LinkButton href={`/work/${project.slug}`} variant="ghost" className="mt-6">
-                      {project.ctaLabel}
-                    </LinkButton>
-                  </div>
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => {
+            const Graphic = GRAPHICS[project.slug];
+            return (
+              <Reveal
+                key={project.slug}
+                className="group flex h-full flex-col border border-ink/10 transition-colors hover:border-topaz"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  {Graphic && (
+                    <Graphic className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+                  )}
                 </div>
-              </Container>
-            </Reveal>
-          );
-        })}
-      </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="text-sm font-semibold text-ink-muted">{project.client}</p>
+                  <h3 className="mt-2 font-display text-xl font-semibold text-ink">
+                    {project.headline}
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-ink-muted">
+                    {narrativeParagraphs(project)[0]}
+                  </p>
+                  <LinkButton href={`/work/${project.slug}`} variant="ghost" className="mt-auto pt-6">
+                    {project.ctaLabel}
+                  </LinkButton>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </Container>
 
       <Container className="mt-12">
         <LinkButton href="/work" variant="secondary">
