@@ -102,10 +102,12 @@ Bootstrap-style card.
   screenshot) as part of this rebuild, not as a separate patch.
 - **Services** (`ServicesIndex`) — numbered icon-card grid, three cards (one per
   service from `lib/data/services.ts`), topaz accent on the numeral/icon.
-- **Differentiator section** (new, using `Approach`'s real content) — restyle into a
-  "why work with us" comparison-style layout, still using only existing approved
-  copy — no new differentiator claims invented.
-- **Process** (`Approach`) — restyle into the template's numbered step-rail treatment.
+- **Process** (`Approach`) — restyle the existing four-step process copy
+  ("Understand / Clarify / Build / Improve") into the template's numbered step-rail
+  treatment. (The template also has a separate "why clients believe we're different"
+  section; there's no distinct approved copy for that claim, so it's not built as a
+  second section — the process rail is the one restyle here, not duplicated content
+  in two layouts.)
 - **Featured Work** (`FeaturedWork`) — project cards restyled to match, abstract SVGs
   standing in for template photography.
 - **Stats section** (new component, `Stats`) — data-driven from `lib/data/stats.ts`.
