@@ -24,7 +24,10 @@ adapted or dropped to keep the site honest.
 ## Non-negotiables (carried over, restated for this pass)
 
 - No fabricated testimonials, quotes, ratings, stats, clients, team members, or press
-  mentions. Every number or quote on the site must be real and supplied by the client.
+  mentions **in the shipped/launched site**. During this build, the client has asked
+  for obviously-placeholder data to be seeded so sections aren't empty while the
+  visual work is reviewed — see "Placeholder content" below for how that's kept safe
+  to swap out and impossible to mistake for real content.
 - No stock photography. All imagery is abstract custom SVG graphics, extending the
   visual language already established for the three case studies
   (`OnPointGraphic`, `DillonGasGraphic`, `WhatsAppGraphic`).
@@ -106,11 +109,11 @@ Bootstrap-style card.
 - **Featured Work** (`FeaturedWork`) — project cards restyled to match, abstract SVGs
   standing in for template photography.
 - **Stats section** (new component, `Stats`) — data-driven from `lib/data/stats.ts`.
-  Ships with an empty array; component renders nothing if the array is empty. No
-  placeholder numbers committed at any point.
+  Ships with clearly-marked placeholder figures (see "Placeholder content" below).
 - **Testimonials section** (new component, `Testimonials`) — data-driven from
-  `lib/data/testimonials.ts`. Ships empty; renders nothing until populated. No star
-  rating displayed unless the client supplies a real aggregate figure and its source.
+  `lib/data/testimonials.ts`. Ships with clearly-marked placeholder quotes/attribution.
+  No star rating displayed — that stays out even as a placeholder, since a fabricated
+  numeric rating is the one element of this pattern with no honest placeholder form.
 - **WhoWeWorkWith, AboutTeaser, FinalCTA** — restyled to the new visual system,
   copy unchanged.
 
@@ -132,9 +135,27 @@ system. Values section can adopt the card treatment. No team section added.
 
 ### Pricing (`app/pricing/page.tsx`, new)
 
-Page shell, nav entry, and card layout ship now. Content (`lib/data/pricing.ts`)
-starts empty; page shows a minimal "pricing details coming soon" state until real
-tiers are supplied, consistent with how Insights already handles "no content yet."
+Page shell, nav entry, and card layout ship now, seeded with clearly-marked
+placeholder tiers (`lib/data/pricing.ts`) until real packages/amounts are supplied.
+
+## Placeholder content
+
+Where the client has asked for placeholder data rather than an empty section
+(testimonials, stats, pricing), every placeholder entry must be unambiguous as a
+placeholder, not merely generic-sounding:
+
+- Data lives in `lib/data/testimonials.ts`, `lib/data/stats.ts`, `lib/data/pricing.ts`,
+  each with a top-of-file comment: `// PLACEHOLDER — replace before launch, see
+  docs/superpowers/specs/2026-09-15-kuvah-template-redesign.md`.
+- Placeholder names/companies use clearly fictitious labels (e.g. "Client Name,
+  Company Name") rather than realistic-sounding fabricated people or businesses —
+  never a name specific enough to be mistaken for a real client if seen out of
+  context (e.g. in a screenshot or shared link before the client edits it).
+- Placeholder stats use round, obviously-illustrative numbers with a label indicating
+  they're illustrative (e.g. "XX projects delivered") rather than precise-looking
+  fake figures ("347").
+- No star rating is added even as a placeholder (see above) — that pattern has no
+  honest placeholder form and is dropped from the design entirely unless real.
 
 ### Start a Project, Insights, 404
 
@@ -143,8 +164,8 @@ copy — no fabricated articles added).
 
 ## Content pending from the client
 
-These must be supplied before their sections go fully live (components ship now,
-render conditionally on real data):
+These sections ship now with placeholder data (see "Placeholder content" above) and
+must be swapped for the real thing before the site is considered launch-ready:
 
 1. **Testimonials** — real quotes with name, role, and company for each.
 2. **Stats** — real figures (e.g. years active, projects delivered) and what each
