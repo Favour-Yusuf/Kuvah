@@ -5,30 +5,23 @@ import { SignatureRays } from "@/components/graphics/SignatureRays";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink pb-24 pt-20 sm:pb-40 sm:pt-28">
+    <section className="relative overflow-hidden bg-ink pb-20 pt-16 sm:pb-28 sm:pt-24">
       <Reveal className="delay-0">
-        <div className="pointer-events-none absolute -right-24 top-8 h-[380px] w-[380px] sm:-right-16 sm:top-4 sm:h-[560px] sm:w-[560px] lg:h-[640px] lg:w-[640px]">
+        <div className="pointer-events-none absolute -right-24 top-0 h-[300px] w-[300px] sm:-right-16 sm:h-[440px] sm:w-[440px] lg:h-[520px] lg:w-[520px]">
           <div className="absolute inset-0 rounded-full bg-topaz/30 blur-3xl" />
           <SignatureRays className="relative h-full w-full text-topaz/60" />
         </div>
       </Reveal>
       <Container className="relative">
         <Reveal className="delay-150">
-          <h1 className="max-w-4xl font-display text-[clamp(2.25rem,9vw,7.5rem)] font-bold leading-[0.98] tracking-tight text-paper">
-            Technology is{" "}
-            <br />
-            easy to build.{" "}
-            <br />
-            <span className="relative inline-block">
-              Building the{" "}
-              <br />
-              right thing is{" "}
-              <br />
-              <span className="text-topaz">harder.</span>
+          <h1 className="max-w-3xl font-display text-[clamp(2.25rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-paper">
+            Technology is easy to build.{" "}
+            <span className="relative inline">
+              Building the right thing is <span className="text-topaz">harder.</span>
             </span>
           </h1>
         </Reveal>
-        <Reveal className="relative z-10 mt-10 max-w-xl space-y-4 text-lg leading-relaxed text-paper/70 delay-300 sm:mt-14">
+        <Reveal className="relative z-10 mt-8 max-w-xl space-y-4 text-lg leading-relaxed text-paper/70 delay-300 sm:mt-10">
           <p>
             Kuvah helps businesses and founders create digital experiences, products and systems
             that are built around what they actually need.
