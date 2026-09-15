@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-ink py-24 text-paper sm:py-32">
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-topaz-deep [clip-path:polygon(40%_0,100%_0,100%_100%,0_100%)]" />
+        <div className="pointer-events-none absolute right-0 top-0 h-48 w-1/3 bg-topaz-deep [clip-path:polygon(40%_0,100%_0,100%_100%,0_100%)] sm:h-64 lg:h-80" />
         <Container width="narrow" className="relative">
           <h1 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
             We believe the work behind technology matters.
