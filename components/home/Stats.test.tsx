@@ -16,8 +16,12 @@ describe("Stats", () => {
       screen.getByRole("heading", { level: 2, name: "A few numbers behind the work." })
     ).toBeInTheDocument();
     expect(screen.getAllByText("XX")).toHaveLength(2);
-    expect(screen.getAllByText("Projects delivered (placeholder — replace with a real count)").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("Years active (placeholder — replace with a real count)").length).toBeGreaterThan(0);
+    expect(
+      screen.getByText("Projects delivered (placeholder — replace with a real count)")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Years active (placeholder — replace with a real count)")
+    ).toBeInTheDocument();
   });
 });
 

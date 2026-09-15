@@ -16,7 +16,6 @@ export function Stats() {
         <dl className="mt-14 grid gap-10 sm:grid-cols-3">
           {stats.map((stat) => (
             <Reveal key={stat.label}>
-              <dt className="sr-only">{stat.label}</dt>
               <dd className="font-display text-5xl font-bold text-topaz sm:text-6xl">
                 {stat.value}
               </dd>
