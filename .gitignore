@@ -42,3 +42,9 @@ next-env.d.ts
 
 # superpowers subagent-driven-development scratch workspace
 /.superpowers/
+
+# local tooling state / auto-generated agent instruction files
+/.claude/
+/.playwright-mcp/
+/AGENTS.md
+/CLAUDE.md
