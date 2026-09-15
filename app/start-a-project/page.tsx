@@ -12,7 +12,7 @@ export default function StartAProjectPage() {
     <section className="bg-paper py-20 sm:py-28">
       <Container className="grid gap-16 lg:grid-cols-2">
         <div className="max-w-[560px]">
-          <h1 className="font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h1 className="font-display text-4xl font-semibold text-ink sm:text-6xl">
             Tell us what&apos;s going on.
           </h1>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-ink-muted">
