@@ -19,6 +19,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <SectionDivider from="bg-ink" to="bg-mist" flip />
       <Introduction />
       <ServicesIndex />
       <SectionDivider from="bg-sky-deep" to="bg-ink" />
