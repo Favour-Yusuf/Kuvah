@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import HomePage from "./page";
 
 describe("HomePage", () => {
-  it("renders the hero headline and all eight narrative sections in order", () => {
+  it("renders the hero headline and all ten narrative sections in order", () => {
     render(<HomePage />);
     const headings = screen.getAllByRole("heading", { level: 1 }).concat(
       screen.getAllByRole("heading", { level: 2 })
@@ -14,7 +14,9 @@ describe("HomePage", () => {
       "Before we build, we listen.",
       "What can we help you build?",
       "We don't jump straight into development.",
+      "A few numbers behind the work.",
       "A few things we've worked on.",
+      "What clients have said.",
       "You don't need to fit into a box to work with us.",
       "We didn't start Kuvah because the world needed another technology company.",
       "Let's start with what you need.",

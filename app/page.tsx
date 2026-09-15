@@ -3,11 +3,14 @@ import { Hero } from "@/components/home/Hero";
 import { Introduction } from "@/components/home/Introduction";
 import { ServicesIndex } from "@/components/home/ServicesIndex";
 import { Approach } from "@/components/home/Approach";
+import { Stats } from "@/components/home/Stats";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
+import { Testimonials } from "@/components/home/Testimonials";
 import { WhoWeWorkWith } from "@/components/home/WhoWeWorkWith";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { TagStrip } from "@/components/ui/TagStrip";
 import { SITE_DESCRIPTION } from "@/lib/data/site";
 
 export const metadata: Metadata = {
@@ -19,12 +22,21 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <SectionDivider from="bg-ink" to="bg-mist" flip />
+      <TagStrip
+        labels={["Digital Experiences", "Digital Products", "Systems & Automation", "Build with Purpose"]}
+        tone="topaz"
+      />
       <Introduction />
       <ServicesIndex />
-      <SectionDivider from="bg-sky-deep" to="bg-ink" />
+      <SectionDivider from="bg-mist" to="bg-ink" />
       <Approach />
+      <Stats />
       <FeaturedWork />
+      <TagStrip
+        labels={["Ecommerce", "Mobile Development", "Automation", "Web Development", "Product Development"]}
+        tone="ink"
+      />
+      <Testimonials />
       <WhoWeWorkWith />
       <AboutTeaser />
       <FinalCTA />
