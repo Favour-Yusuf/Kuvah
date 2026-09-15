@@ -1,13 +1,14 @@
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "secondary-inverse" | "ghost";
+type Variant = "primary" | "secondary" | "secondary-inverse" | "ghost" | "invert";
 
 const VARIANT_CLASSES: Record<Variant, string> = {
   primary: "bg-ink text-paper hover:bg-topaz hover:text-ink",
   secondary: "bg-transparent text-ink border border-ink/20 hover:border-ink",
   "secondary-inverse": "bg-transparent text-paper border border-paper/30 hover:border-paper",
   ghost: "bg-transparent text-ink underline underline-offset-4 decoration-topaz decoration-2 px-0 py-0",
+  invert: "bg-paper text-ink hover:bg-ink hover:text-paper",
 };
 
 function buttonClasses(variant: Variant, className?: string) {

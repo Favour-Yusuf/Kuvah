@@ -6,7 +6,9 @@
   --color-paper: #ffffff;
   --color-mist: #f4f4f6;
   --color-topaz: #ffcb77;
+  --color-topaz-deep: #8a5a22;
   --color-sky: #5bc0eb;
+  --color-sky-deep: #164c63;
 
   --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -43,6 +45,7 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
     scroll-behavior: auto !important;
   }
 }

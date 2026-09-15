@@ -18,6 +18,17 @@ describe("LinkButton", () => {
     const link = screen.getByRole("link", { name: "About" });
     expect(link.className).toContain("text-paper");
   });
+
+  it("applies the invert variant's classes", () => {
+    render(
+      <LinkButton href="/start-a-project" variant="invert">
+        Start a Project
+      </LinkButton>
+    );
+    const link = screen.getByRole("link", { name: "Start a Project" });
+    expect(link.className).toContain("bg-paper");
+    expect(link.className).toContain("text-ink");
+  });
 });
 
 describe("Button", () => {
