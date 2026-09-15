@@ -42,10 +42,10 @@ export function WhoWeWorkWith() {
           {AUDIENCES.map((audience) => (
             <div key={audience.name} tabIndex={0} className="group py-8 outline-none sm:py-10">
               <Reveal>
-                <h3 className="font-display text-2xl font-semibold text-ink transition-colors sm:text-3xl">
+                <h3 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
                   {audience.name}
                 </h3>
-                <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr] md:grid-rows-[0fr]">
+                <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus-within:grid-rows-[1fr]">
                   <div className="overflow-hidden">
                     <div className="mt-4 max-w-xl space-y-3 text-base leading-relaxed text-ink-muted">
                       {audience.body.map((paragraph) => (
@@ -53,11 +53,6 @@ export function WhoWeWorkWith() {
                       ))}
                     </div>
                   </div>
-                </div>
-                <div className="mt-4 max-w-xl space-y-3 text-base leading-relaxed text-ink-muted md:hidden">
-                  {audience.body.map((paragraph) => (
-                    <p key={`mobile-${paragraph}`}>{paragraph}</p>
-                  ))}
                 </div>
               </Reveal>
             </div>
