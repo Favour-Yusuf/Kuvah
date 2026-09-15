@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { SignatureRays } from "@/components/graphics/SignatureRays";
 
 const STEPS = [
   {
@@ -38,14 +39,21 @@ export function Approach() {
           </p>
         </Reveal>
 
-        <ol className="mt-16 grid gap-10 sm:grid-cols-4 sm:gap-6">
+        <ol className="relative mt-20 grid gap-14 sm:grid-cols-4 sm:gap-6">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 right-0 top-[1.6rem] hidden h-px bg-paper/20 sm:block"
+          />
           {STEPS.map((step, index) => (
-            <Reveal as="li" key={step.name} className="border-t border-paper/20 pt-6">
-              <span className="font-display text-sm font-semibold text-topaz">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-3 font-display text-xl font-semibold">{step.name}</h3>
-              <p className="mt-2 text-base font-medium text-paper/90">{step.question}</p>
+            <Reveal as="li" key={step.name} className="relative">
+              <div className="flex items-center gap-3">
+                <SignatureRays className="h-6 w-6 shrink-0 text-topaz" />
+                <span className="font-display text-2xl font-bold text-topaz">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <h3 className="mt-6 font-display text-2xl font-semibold sm:text-3xl">{step.name}</h3>
+              <p className="mt-3 text-base font-medium text-paper/90">{step.question}</p>
               <p className="mt-2 text-base leading-relaxed text-paper/70">{step.body}</p>
             </Reveal>
           ))}
