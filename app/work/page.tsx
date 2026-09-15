@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ComponentType } from "react";
 import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/Button";
+import { TagStrip } from "@/components/ui/TagStrip";
 import { projects } from "@/lib/data/projects";
 import { OnPointGraphic } from "@/components/work/graphics/OnPointGraphic";
 import { DillonGasGraphic } from "@/components/work/graphics/DillonGasGraphic";
@@ -36,37 +37,44 @@ export default function WorkPage() {
         </Container>
       </section>
 
-      <section className="bg-paper pb-24">
-        {projects.map((project, index) => {
-          const Graphic = GRAPHICS[project.slug];
-          return (
-            <article key={project.slug} className={index > 0 ? "border-t border-ink/10" : ""}>
-              <Container className="grid gap-8 py-14 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16 sm:py-20">
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  {Graphic && <Graphic className="h-full w-full object-cover" />}
-                </div>
-                <div>
-                  <ul className="flex flex-wrap gap-2 text-sm text-ink-muted">
-                    {project.workTags.map((tag) => (
-                      <li key={tag} className="rounded-full border border-ink/15 px-3 py-1">
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                  <h2 className="mt-4 font-display text-3xl font-semibold text-ink sm:text-4xl">
-                    {project.client}
-                  </h2>
-                  <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-muted">
-                    {project.workSummary}
-                  </p>
-                  <LinkButton href={`/work/${project.slug}`} variant="secondary" className="mt-6">
-                    {project.ctaLabel}
-                  </LinkButton>
-                </div>
-              </Container>
-            </article>
-          );
-        })}
+      <TagStrip labels={["Ecommerce", "Mobile Development", "Automation", "Web Development", "Product Development"]} tone="ink" />
+
+      <section className="bg-paper py-24">
+        <Container>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => {
+              const Graphic = GRAPHICS[project.slug];
+              return (
+                <article
+                  key={project.slug}
+                  className="group flex h-full flex-col border border-ink/10 transition-colors hover:border-topaz"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    {Graphic && <Graphic className="h-full w-full object-cover" />}
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <ul className="flex flex-wrap gap-2 text-sm text-ink-muted">
+                      {project.workTags.map((tag) => (
+                        <li key={tag} className="rounded-full border border-ink/15 px-3 py-1">
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                    <h2 className="mt-4 font-display text-2xl font-semibold text-ink">
+                      {project.client}
+                    </h2>
+                    <p className="mt-3 text-base leading-relaxed text-ink-muted">
+                      {project.workSummary}
+                    </p>
+                    <LinkButton href={`/work/${project.slug}`} variant="secondary" className="mt-auto pt-6">
+                      {project.ctaLabel}
+                    </LinkButton>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </Container>
       </section>
     </>
   );
