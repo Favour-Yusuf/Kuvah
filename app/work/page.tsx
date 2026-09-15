@@ -43,7 +43,7 @@ export default function WorkPage() {
             <article key={project.slug} className={index > 0 ? "border-t border-ink/10" : ""}>
               <Container className="grid gap-8 py-14 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16 sm:py-20">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <Graphic className="h-full w-full object-cover" />
+                  {Graphic && <Graphic className="h-full w-full object-cover" />}
                 </div>
                 <div>
                   <ul className="flex flex-wrap gap-2 text-sm text-ink-muted">

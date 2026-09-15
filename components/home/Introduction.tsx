@@ -6,13 +6,6 @@ export function Introduction() {
     <section className="bg-mist py-20 sm:py-28">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-start lg:gap-16">
-          <Reveal>
-            <div className="bg-topaz p-8 sm:p-10">
-              <p className="font-display text-3xl font-bold leading-[1.05] text-ink sm:text-4xl">
-                It&apos;s about whether it solves the right problem.
-              </p>
-            </div>
-          </Reveal>
           <Reveal className="lg:pt-4">
             <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
               Before we build, we listen.
@@ -31,6 +24,13 @@ export function Introduction() {
                 problem is and what would actually make a difference before we start building.
               </p>
               <p>Because a good solution isn&apos;t just about what it can do.</p>
+            </div>
+          </Reveal>
+          <Reveal className="lg:order-first">
+            <div className="bg-topaz p-8 sm:p-10">
+              <p className="font-display text-3xl font-bold leading-[1.05] text-ink sm:text-4xl">
+                It&apos;s about whether it solves the right problem.
+              </p>
             </div>
           </Reveal>
         </div>

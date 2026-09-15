@@ -38,7 +38,9 @@ export function FeaturedWork() {
                   className={`grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16 ${reversed ? "lg:[&>*:first-child]:order-2" : ""}`}
                 >
                   <div className="group relative aspect-[4/3] overflow-hidden">
-                    <Graphic className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+                    {Graphic && (
+                      <Graphic className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+                    )}
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-ink-muted">{project.client}</p>

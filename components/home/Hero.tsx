@@ -9,12 +9,12 @@ export function Hero() {
       <Reveal className="delay-0">
         <div className="pointer-events-none absolute -right-24 top-8 h-[380px] w-[380px] sm:-right-16 sm:top-4 sm:h-[560px] sm:w-[560px] lg:h-[640px] lg:w-[640px]">
           <div className="absolute inset-0 rounded-full bg-topaz/30 blur-3xl" />
-          <SignatureRays className="relative h-full w-full text-topaz" />
+          <SignatureRays className="relative h-full w-full text-topaz/60" />
         </div>
       </Reveal>
       <Container className="relative">
         <Reveal className="delay-150">
-          <h1 className="max-w-4xl font-display text-[clamp(2.75rem,9vw,7.5rem)] font-bold leading-[0.98] tracking-tight text-paper">
+          <h1 className="max-w-4xl font-display text-[clamp(2.25rem,9vw,7.5rem)] font-bold leading-[0.98] tracking-tight text-paper">
             Technology is{" "}
             <br />
             easy to build.{" "}

@@ -6,14 +6,14 @@ import { SectionDivider } from "@/components/ui/SectionDivider";
 export function FinalCTA() {
   return (
     <>
-      <SectionDivider from="bg-mist" to="bg-topaz-deep" flip />
+      <SectionDivider from="bg-ink" to="bg-topaz-deep" flip />
       <section className="bg-topaz-deep py-28 sm:py-40">
         <Container width="narrow">
           <Reveal>
             <h2 className="font-display text-4xl font-bold leading-[1.02] text-paper sm:text-7xl">
               Let&apos;s start with what you need.
             </h2>
-            <div className="mt-8 max-w-xl space-y-4 text-lg leading-relaxed text-paper/80">
+            <div className="mt-8 max-w-xl space-y-4 text-lg leading-relaxed text-paper/90">
               <p>You don&apos;t need a perfect brief.</p>
               <p>You don&apos;t need to know exactly what technology to use.</p>
               <p>And you don&apos;t need to have every answer before reaching out.</p>

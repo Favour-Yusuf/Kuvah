@@ -11,7 +11,7 @@ const BAND_STYLES = {
 
 export function ServicesIndex() {
   return (
-    <section className="bg-paper py-20 sm:py-28">
+    <section className="bg-paper pt-20 sm:pt-28">
       <Container>
         <Reveal className="max-w-2xl">
           <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">

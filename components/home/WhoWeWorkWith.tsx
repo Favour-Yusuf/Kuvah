@@ -40,7 +40,7 @@ export function WhoWeWorkWith() {
 
         <div className="mt-16 divide-y divide-ink/15 border-t border-ink/15">
           {AUDIENCES.map((audience) => (
-            <div key={audience.name} tabIndex={0} className="group py-8 outline-none sm:py-10">
+            <div key={audience.name} tabIndex={0} className="group py-8 sm:py-10">
               <Reveal>
                 <h3 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
                   {audience.name}

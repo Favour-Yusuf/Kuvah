@@ -84,7 +84,7 @@ export default function AboutPage() {
           <h2 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
             Where we&apos;re going
           </h2>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/80">
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/90">
             <p>
               We&apos;re building Kuvah into a technology company that creates useful products,
               supports ambitious businesses and continues to explore better ways of solving

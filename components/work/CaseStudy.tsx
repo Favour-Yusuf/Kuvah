@@ -18,8 +18,8 @@ export function CaseStudy({ project }: { project: Project }) {
 
   return (
     <article>
-      <div className="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[21/9]">
-        <Graphic className="h-full w-full object-cover" />
+      <div className="relative aspect-[16/9] w-full overflow-hidden">
+        {Graphic && <Graphic className="h-full w-full object-cover" />}
       </div>
 
       <Container className="py-16 sm:py-24">
