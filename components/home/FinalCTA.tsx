@@ -5,7 +5,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export function FinalCTA() {
   return (
     <section className="bg-mist py-24 sm:py-32">
-      <Container className="max-w-[760px]">
+      <Container width="narrow">
         <Reveal>
           <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
             Let&apos;s start with what you need.

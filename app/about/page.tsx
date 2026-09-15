@@ -29,7 +29,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="bg-paper py-20 sm:py-28">
-        <Container className="max-w-[760px]">
+        <Container width="narrow">
           <h1 className="font-display text-4xl font-semibold text-ink sm:text-5xl">
             We believe the work behind technology matters.
           </h1>
@@ -73,7 +73,7 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-ink py-20 text-paper sm:py-28">
-        <Container className="max-w-[760px]">
+        <Container width="narrow">
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">Where we&apos;re going</h2>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/70">
             <p>

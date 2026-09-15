@@ -4,8 +4,9 @@ import userEvent from "@testing-library/user-event";
 import { Nav } from "./Nav";
 
 describe("Nav", () => {
-  it("renders the four primary links and the Start a Project CTA", () => {
+  it("renders the Kuvah logo lockup and the four primary links and Start a Project CTA", () => {
     render(<Nav />);
+    expect(screen.getByAltText("Kuvah")).toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: "Work" })[0]).toHaveAttribute("href", "/work");
     expect(screen.getAllByRole("link", { name: "Services" })[0]).toHaveAttribute("href", "/services");
     expect(screen.getAllByRole("link", { name: "About" })[0]).toHaveAttribute("href", "/about");

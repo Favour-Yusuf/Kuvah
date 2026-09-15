@@ -12,7 +12,7 @@ export default function WorkPage() {
   return (
     <>
       <section className="bg-paper py-20 sm:py-28">
-        <Container className="max-w-[760px]">
+        <Container width="narrow">
           <h1 className="font-display text-4xl font-semibold text-ink sm:text-5xl">
             Work with a reason behind it.
           </h1>

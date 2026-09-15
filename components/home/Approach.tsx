@@ -40,15 +40,13 @@ export function Approach() {
 
         <ol className="mt-16 grid gap-10 sm:grid-cols-4 sm:gap-6">
           {STEPS.map((step, index) => (
-            <Reveal key={step.name}>
-              <li className="border-t border-paper/20 pt-6">
-                <span className="font-display text-sm font-semibold text-topaz">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 font-display text-xl font-semibold">{step.name}</h3>
-                <p className="mt-2 text-base font-medium text-paper/90">{step.question}</p>
-                <p className="mt-2 text-base leading-relaxed text-paper/70">{step.body}</p>
-              </li>
+            <Reveal as="li" key={step.name} className="border-t border-paper/20 pt-6">
+              <span className="font-display text-sm font-semibold text-topaz">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 font-display text-xl font-semibold">{step.name}</h3>
+              <p className="mt-2 text-base font-medium text-paper/90">{step.question}</p>
+              <p className="mt-2 text-base leading-relaxed text-paper/70">{step.body}</p>
             </Reveal>
           ))}
         </ol>

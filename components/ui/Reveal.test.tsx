@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, act } from "@testing-library/react";
 import { Reveal } from "./Reveal";
+import { MockIntersectionObserver } from "@/vitest.setup";
 
 afterEach(() => {
   cleanup();
@@ -32,5 +33,28 @@ describe("Reveal", () => {
 
     render(<Reveal>Content</Reveal>);
     expect(screen.getByText("Content")).toHaveAttribute("data-visible", "true");
+  });
+
+  it("becomes visible once the IntersectionObserver reports the node is intersecting", () => {
+    render(<Reveal>Observed</Reveal>);
+    const node = screen.getByText("Observed");
+    expect(node).toHaveAttribute("data-visible", "false");
+
+    const [observer] = MockIntersectionObserver.instances;
+    act(() => {
+      observer.trigger(true);
+    });
+
+    expect(node).toHaveAttribute("data-visible", "true");
+  });
+
+  it("renders as an <li> when as=\"li\" is passed", () => {
+    render(
+      <ul>
+        <Reveal as="li">List item</Reveal>
+      </ul>
+    );
+    const item = screen.getByText("List item");
+    expect(item.tagName).toBe("LI");
   });
 });

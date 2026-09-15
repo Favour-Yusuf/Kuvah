@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/ui/SkipLink";
+import { SITE_DESCRIPTION } from "@/lib/data/site";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -24,10 +25,9 @@ export const metadata: Metadata = {
     default: "Kuvah Technologies",
     template: "%s — Kuvah Technologies",
   },
-  description:
-    "Kuvah helps Nigerian businesses and founders create digital experiences, products and systems built around what they actually need.",
+  description: SITE_DESCRIPTION,
   icons: {
-    icon: "/Kuvah Icon black.png",
+    icon: "/kuvah-icon-black.png",
   },
 };
 
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-paper font-sans text-ink">
         <SkipLink />
         <Nav />
-        <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+        <main id="main-content" tabIndex={-1} className="flex-1">
           {children}
         </main>
         <Footer />

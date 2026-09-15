@@ -17,7 +17,13 @@ export function ServicesIndex() {
         <div className="mt-16 divide-y divide-ink/10 border-t border-ink/10">
           {services.map((service) => (
             <Reveal key={service.slug} className="grid gap-6 py-12 sm:grid-cols-[100px_1fr] sm:gap-10">
-              <span className="font-display text-2xl font-semibold text-ink-muted">{service.number}</span>
+              <span
+                className={`font-display text-2xl font-semibold ${
+                  service.slug === "systems-automation" ? "text-sky" : "text-ink-muted"
+                }`}
+              >
+                {service.number}
+              </span>
               <div>
                 <h3 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
                   {service.name}

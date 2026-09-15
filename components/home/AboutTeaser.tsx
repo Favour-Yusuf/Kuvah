@@ -5,7 +5,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export function AboutTeaser() {
   return (
     <section className="bg-ink py-20 text-paper sm:py-28">
-      <Container className="max-w-[760px]">
+      <Container width="narrow">
         <Reveal>
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">
             We didn&apos;t start Kuvah because the world needed another technology company.

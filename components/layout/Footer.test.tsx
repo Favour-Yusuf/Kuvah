@@ -5,7 +5,7 @@ import { Footer } from "./Footer";
 describe("Footer", () => {
   it("renders the wordmark, tagline and all footer nav links", () => {
     render(<Footer />);
-    expect(screen.getByText("Kuvah Technologies")).toBeInTheDocument();
+    expect(screen.getByAltText("Kuvah Technologies")).toBeInTheDocument();
     expect(screen.getByText("Build with light.")).toBeInTheDocument();
     for (const label of ["Work", "Services", "About", "Insights", "Start a Project"]) {
       expect(screen.getByRole("link", { name: label })).toBeInTheDocument();

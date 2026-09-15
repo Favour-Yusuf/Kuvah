@@ -38,6 +38,30 @@ describe("StartProjectForm", () => {
     expect(screen.queryByText("We've got it.")).not.toBeInTheDocument();
   });
 
+  it("marks an invalid field as aria-invalid and links its error via aria-describedby", async () => {
+    const user = userEvent.setup();
+    render(<StartProjectForm />);
+    await user.click(screen.getByRole("button", { name: "Send Enquiry" }));
+
+    const nameField = screen.getByLabelText("Your name");
+    expect(nameField).toHaveAttribute("aria-invalid", "true");
+
+    const describedBy = nameField.getAttribute("aria-describedby");
+    expect(describedBy).toBe("name-error");
+
+    const error = screen.getByText("Tell us your name.");
+    expect(error).toHaveAttribute("id", "name-error");
+    expect(error).toHaveAttribute("role", "alert");
+  });
+
+  it("moves focus to the first invalid field after a failed submit", async () => {
+    const user = userEvent.setup();
+    render(<StartProjectForm />);
+    await user.click(screen.getByRole("button", { name: "Send Enquiry" }));
+
+    expect(screen.getByLabelText("Your name")).toHaveFocus();
+  });
+
   it("shows the success state after a valid submission", async () => {
     const user = userEvent.setup();
     render(<StartProjectForm />);
@@ -54,5 +78,6 @@ describe("StartProjectForm", () => {
     await user.click(screen.getByRole("button", { name: "Send Enquiry" }));
 
     expect(await screen.findByText("We've got it.")).toBeInTheDocument();
+    expect(screen.getByRole("status")).toHaveFocus();
   });
 });

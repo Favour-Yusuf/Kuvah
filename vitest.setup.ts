@@ -3,13 +3,14 @@ import { afterEach, vi } from "vitest";
 import { cleanup } from "@testing-library/react";
 import React from "react";
 
-// vitest.config.ts does not set test.globals, so @testing-library/react's
+// vitest.config.mts does not set test.globals, so @testing-library/react's
 // automatic afterEach(cleanup) never registers on its own — without this,
 // DOM nodes from earlier tests in the same file persist and can make a
 // later `getByText`/`getByRole` match multiple elements whenever two tests
 // render the same text.
 afterEach(() => {
   cleanup();
+  MockIntersectionObserver.instances = [];
 });
 
 vi.mock("next/image", () => ({
@@ -17,11 +18,18 @@ vi.mock("next/image", () => ({
   default: (props: Record<string, unknown>) => React.createElement("img", props),
 }));
 
-class MockIntersectionObserver implements IntersectionObserver {
+export class MockIntersectionObserver implements IntersectionObserver {
+  // Every instance constructed during a test run, in construction order —
+  // lets a test reach the live instance a component created (e.g. `Reveal`)
+  // to drive its callback via `trigger`.
+  static instances: MockIntersectionObserver[] = [];
+
   readonly root: Element | Document | null = null;
   readonly rootMargin = "";
   readonly thresholds: ReadonlyArray<number> = [];
-  constructor(private callback: IntersectionObserverCallback) {}
+  constructor(private callback: IntersectionObserverCallback) {
+    MockIntersectionObserver.instances.push(this);
+  }
   observe = vi.fn();
   unobserve = vi.fn();
   disconnect = vi.fn();

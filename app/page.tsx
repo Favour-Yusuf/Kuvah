@@ -7,11 +7,11 @@ import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { WhoWeWorkWith } from "@/components/home/WhoWeWorkWith";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { SITE_DESCRIPTION } from "@/lib/data/site";
 
 export const metadata: Metadata = {
   title: "Kuvah Technologies — Websites, Digital Products & Systems",
-  description:
-    "Kuvah helps Nigerian businesses and founders create digital experiences, products and systems built around what they actually need.",
+  description: SITE_DESCRIPTION,
 };
 
 export default function HomePage() {

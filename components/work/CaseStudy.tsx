@@ -14,7 +14,7 @@ export function CaseStudy({ project }: { project: Project }) {
         </h1>
       </Container>
 
-      <Container className="max-w-[760px] space-y-12 pb-24">
+      <Container width="narrow" className="space-y-12 pb-24">
         {narrative.challenge && (
           <section>
             <h2 className="font-display text-xl font-semibold text-ink">The challenge</h2>
@@ -39,16 +39,18 @@ export function CaseStudy({ project }: { project: Project }) {
             <p className="mt-3 text-base leading-relaxed text-ink-muted">{narrative.outcome}</p>
           </section>
         )}
-        <section>
-          <h2 className="font-display text-xl font-semibold text-ink">Focus areas</h2>
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {focusAreas.map((area) => (
-              <li key={area} className="rounded-full border border-ink/15 px-3 py-1 text-sm text-ink-muted">
-                {area}
-              </li>
-            ))}
-          </ul>
-        </section>
+        {focusAreas.length > 0 && (
+          <section>
+            <h2 className="font-display text-xl font-semibold text-ink">Focus areas</h2>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {focusAreas.map((area) => (
+                <li key={area} className="rounded-full border border-ink/15 px-3 py-1 text-sm text-ink-muted">
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </Container>
 
       <Container className="border-t border-ink/10 py-16">

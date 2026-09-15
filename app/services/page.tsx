@@ -13,7 +13,7 @@ export default function ServicesPage() {
   return (
     <>
       <section className="bg-paper py-20 sm:py-28">
-        <Container className="max-w-[760px]">
+        <Container width="narrow">
           <h1 className="font-display text-4xl font-semibold text-ink sm:text-5xl">
             What are you trying to move forward?
           </h1>
@@ -33,7 +33,13 @@ export default function ServicesPage() {
           className={`py-20 sm:py-28 ${index % 2 === 1 ? "bg-mist" : "bg-paper"}`}
         >
           <Container>
-            <p className="text-sm font-semibold text-ink-muted">{service.number}</p>
+            <p
+              className={`text-sm font-semibold ${
+                service.slug === "systems-automation" ? "text-sky" : "text-ink-muted"
+              }`}
+            >
+              {service.number}
+            </p>
             <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold text-ink sm:text-4xl">
               {service.pageHeadline}
             </h2>

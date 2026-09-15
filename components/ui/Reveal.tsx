@@ -2,8 +2,16 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-export function Reveal({ children, className }: { children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+export function Reveal({
+  children,
+  className,
+  as: Tag = "div",
+}: {
+  children: ReactNode;
+  className?: string;
+  as?: "div" | "li";
+}) {
+  const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -36,14 +44,14 @@ export function Reveal({ children, className }: { children: ReactNode; className
   }, []);
 
   return (
-    <div
-      ref={ref}
+    <Tag
+      ref={ref as never}
       data-visible={visible}
       className={`transition-all duration-700 ease-out ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       } ${className ?? ""}`}
     >
       {children}
-    </div>
+    </Tag>
   );
 }
