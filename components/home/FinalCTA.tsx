@@ -9,7 +9,7 @@ export function FinalCTA() {
       <SectionDivider from="bg-ink" to="bg-topaz-deep" flip />
       <section className="bg-topaz-deep py-28 sm:py-40">
         <Container width="narrow">
-          <Reveal className="border-l-4 border-ink pl-8">
+          <Reveal className="border-l-4 border-topaz pl-8">
             <h2 className="font-display text-4xl font-bold leading-[1.02] text-paper sm:text-7xl">
               Let&apos;s start with what you need.
             </h2>

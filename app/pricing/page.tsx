@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <section className="bg-paper py-20 sm:py-28">
-      <Container width="narrow">
+      <Container>
         <h1 className="font-display text-4xl font-semibold text-ink sm:text-6xl">
           What working with us can look like.
         </h1>
@@ -38,7 +38,7 @@ export default function PricingPage() {
         ))}
       </Container>
 
-      <Container className="mt-16 text-center">
+      <Container className="mt-16">
         <LinkButton href="/start-a-project">Start a Project</LinkButton>
       </Container>
     </section>

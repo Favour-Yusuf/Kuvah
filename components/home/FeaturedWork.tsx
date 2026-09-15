@@ -32,7 +32,7 @@ export function FeaturedWork() {
             return (
               <Reveal
                 key={project.slug}
-                className="group flex h-full flex-col border border-ink/10 transition-colors hover:border-topaz"
+                className="group flex h-full flex-col border border-ink/10 transition-colors hover:border-topaz hover:border-t-4 hover:border-t-topaz"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   {Graphic && (
@@ -47,9 +47,11 @@ export function FeaturedWork() {
                   <p className="mt-3 text-base leading-relaxed text-ink-muted">
                     {narrativeParagraphs(project)[0]}
                   </p>
-                  <LinkButton href={`/work/${project.slug}`} variant="ghost" className="mt-auto pt-6">
-                    {project.ctaLabel}
-                  </LinkButton>
+                  <div className="mt-auto pt-6">
+                    <LinkButton href={`/work/${project.slug}`} variant="ghost">
+                      {project.ctaLabel}
+                    </LinkButton>
+                  </div>
                 </div>
               </Reveal>
             );

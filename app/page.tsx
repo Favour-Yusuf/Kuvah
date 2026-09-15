@@ -27,6 +27,7 @@ export default function HomePage() {
         tone="topaz"
       />
       <Introduction />
+      <TagStrip labels={["Understand", "Clarify", "Build", "Improve"]} tone="ink" />
       <ServicesIndex />
       <SectionDivider from="bg-mist" to="bg-ink" />
       <Approach />
@@ -37,6 +38,10 @@ export default function HomePage() {
         tone="ink"
       />
       <Testimonials />
+      <TagStrip
+        labels={["Fashion", "Ecommerce", "Web", "Mobile", "Product", "Software"]}
+        tone="topaz"
+      />
       <WhoWeWorkWith />
       <AboutTeaser />
       <FinalCTA />

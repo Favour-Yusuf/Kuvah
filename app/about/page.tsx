@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
-import { SectionDivider } from "@/components/ui/SectionDivider";
 import { TagStrip } from "@/components/ui/TagStrip";
 
 export const metadata: Metadata = {
@@ -59,7 +58,6 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <SectionDivider from="bg-ink" to="bg-mist" />
       <TagStrip labels={VALUES.map((value) => value.name)} tone="topaz" />
 
       <section className="bg-mist py-20 sm:py-28">

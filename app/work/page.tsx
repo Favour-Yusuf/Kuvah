@@ -47,10 +47,12 @@ export default function WorkPage() {
               return (
                 <article
                   key={project.slug}
-                  className="group flex h-full flex-col border border-ink/10 transition-colors hover:border-topaz"
+                  className="group flex h-full flex-col border border-ink/10 transition-colors hover:border-topaz hover:border-t-4 hover:border-t-topaz"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    {Graphic && <Graphic className="h-full w-full object-cover" />}
+                    {Graphic && (
+                      <Graphic className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+                    )}
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <ul className="flex flex-wrap gap-2 text-sm text-ink-muted">
@@ -66,9 +68,11 @@ export default function WorkPage() {
                     <p className="mt-3 text-base leading-relaxed text-ink-muted">
                       {project.workSummary}
                     </p>
-                    <LinkButton href={`/work/${project.slug}`} variant="secondary" className="mt-auto pt-6">
-                      {project.ctaLabel}
-                    </LinkButton>
+                    <div className="mt-auto pt-6">
+                      <LinkButton href={`/work/${project.slug}`} variant="secondary">
+                        {project.ctaLabel}
+                      </LinkButton>
+                    </div>
                   </div>
                 </article>
               );

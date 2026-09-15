@@ -13,16 +13,16 @@ export function Stats() {
             A few numbers behind the work.
           </h2>
         </Reveal>
-        <dl className="mt-14 grid gap-10 sm:grid-cols-3">
+        <div className="mt-14 grid gap-10 sm:grid-cols-3">
           {stats.map((stat) => (
             <Reveal key={stat.label}>
-              <dd className="font-display text-5xl font-bold text-topaz sm:text-6xl">
+              <p className="font-display text-5xl font-bold text-topaz sm:text-6xl">
                 {stat.value}
-              </dd>
+              </p>
               <p className="mt-2 text-base text-paper/90">{stat.label}</p>
             </Reveal>
           ))}
-        </dl>
+        </div>
       </Container>
     </section>
   );
