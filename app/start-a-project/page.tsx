@@ -31,7 +31,9 @@ export default function StartAProjectPage() {
           </div>
         </div>
 
-        <StartProjectForm />
+        <div className="border border-ink/15 p-8">
+          <StartProjectForm />
+        </div>
       </Container>
     </section>
   );
