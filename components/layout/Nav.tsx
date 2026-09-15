@@ -44,7 +44,7 @@ export function Nav() {
               key={link.href}
               href={link.href}
               aria-current={pathname === link.href ? "page" : undefined}
-              className="text-sm font-medium text-ink transition hover:text-ink/70"
+              className="relative text-sm font-medium text-ink after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-topaz after:transition-all after:duration-300 hover:after:w-full aria-[current=page]:after:w-full"
             >
               {link.label}
             </Link>
@@ -79,7 +79,7 @@ export function Nav() {
                 <Link
                   href={link.href}
                   aria-current={pathname === link.href ? "page" : undefined}
-                  className="block text-base font-medium text-ink"
+                  className="block text-base font-medium text-ink relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-topaz after:transition-all after:duration-300 hover:after:w-full aria-[current=page]:after:w-full"
                   onClick={closeMenu}
                 >
                   {link.label}

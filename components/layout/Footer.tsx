@@ -27,7 +27,7 @@ export function Footer() {
 
         <nav aria-label="Footer" className="flex flex-col gap-3">
           {FOOTER_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-medium text-ink hover:text-ink/70">
+            <Link key={link.href} href={link.href} className="relative text-sm font-medium text-ink after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-topaz after:transition-all after:duration-300 hover:after:w-full">
               {link.label}
             </Link>
           ))}
