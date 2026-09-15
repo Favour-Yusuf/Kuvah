@@ -1,6 +1,5 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { SignatureRays } from "@/components/graphics/SignatureRays";
 
 const STEPS = [
   {
@@ -39,27 +38,18 @@ export function Approach() {
           </p>
         </Reveal>
 
-        <div className="relative mt-20">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute left-0 right-0 top-4 hidden h-px bg-paper/20 sm:block"
-          />
-          <ol className="grid gap-14 sm:grid-cols-4 sm:gap-6">
-            {STEPS.map((step, index) => (
-              <Reveal as="li" key={step.name} className="relative">
-                <div className="flex items-center gap-3">
-                  <SignatureRays className="h-6 w-6 shrink-0 text-topaz" />
-                  <span className="font-display text-2xl font-bold text-topaz">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="mt-6 font-display text-2xl font-semibold sm:text-3xl">{step.name}</h3>
-                <p className="mt-3 text-base font-medium text-paper/90">{step.question}</p>
-                <p className="mt-2 text-base leading-relaxed text-paper/70">{step.body}</p>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
+        <ol className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {STEPS.map((step, index) => (
+            <Reveal as="li" key={step.name} className="border border-paper/15 p-6">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-topaz font-display text-sm font-bold text-ink">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-6 font-display text-2xl font-semibold">{step.name}</h3>
+              <p className="mt-3 text-base font-medium text-paper/90">{step.question}</p>
+              <p className="mt-2 text-base leading-relaxed text-paper/70">{step.body}</p>
+            </Reveal>
+          ))}
+        </ol>
 
         <Reveal className="mt-16 border-t border-paper/20 pt-8">
           <p className="max-w-xl font-display text-xl font-medium">
