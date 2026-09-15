@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { TagStrip } from "@/components/ui/TagStrip";
 
 export const metadata: Metadata = {
   title: "About",
@@ -59,19 +60,20 @@ export default function AboutPage() {
       </section>
 
       <SectionDivider from="bg-ink" to="bg-mist" />
+      <TagStrip labels={VALUES.map((value) => value.name)} tone="topaz" />
 
       <section className="bg-mist py-20 sm:py-28">
         <Container>
           <h2 className="font-display text-3xl font-semibold text-ink sm:text-5xl">
             What guides our work
           </h2>
-          <div className="mt-12 grid gap-10 sm:grid-cols-2">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {VALUES.map((value, index) => (
-              <div key={value.name} className="border-t border-ink/15 pt-6">
+              <div key={value.name} className="border border-ink/15 bg-paper p-8">
                 <span className="font-display text-sm font-semibold text-topaz-deep">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-2 font-display text-2xl font-semibold text-ink">{value.name}</h3>
+                <h3 className="mt-3 font-display text-2xl font-semibold text-ink">{value.name}</h3>
                 <p className="mt-2 text-base leading-relaxed text-ink-muted">{value.body}</p>
               </div>
             ))}
