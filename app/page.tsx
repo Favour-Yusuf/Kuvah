@@ -7,6 +7,7 @@ import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { WhoWeWorkWith } from "@/components/home/WhoWeWorkWith";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
 import { FinalCTA } from "@/components/home/FinalCTA";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 import { SITE_DESCRIPTION } from "@/lib/data/site";
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Hero />
       <Introduction />
       <ServicesIndex />
+      <SectionDivider from="bg-sky-deep" to="bg-ink" />
       <Approach />
       <FeaturedWork />
       <WhoWeWorkWith />
