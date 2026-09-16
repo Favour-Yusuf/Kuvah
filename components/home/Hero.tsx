@@ -14,7 +14,7 @@ export function Hero() {
       </Reveal>
       <Container className="relative">
         <Reveal className="delay-150">
-          <h1 className="max-w-3xl font-display text-[clamp(2.25rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-paper">
+          <h1 className="max-w-2xl font-display text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.15] tracking-tight text-paper">
             Technology is easy to build.{" "}
             <span className="relative inline">
               Building the right thing is <span className="text-topaz">harder.</span>
