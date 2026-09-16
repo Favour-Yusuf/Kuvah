@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-ink py-24 text-paper sm:py-32">
-        <div className="pointer-events-none absolute right-0 top-0 h-48 w-1/3 bg-topaz-deep [clip-path:polygon(40%_0,100%_0,100%_100%,0_100%)] sm:h-64 lg:h-80" />
+        <div className="pointer-events-none absolute right-0 top-0 h-48 w-1/3 bg-topaz/20 [clip-path:polygon(40%_0,100%_0,100%_100%,0_100%)] sm:h-64 lg:h-80" />
         <Container width="narrow" className="relative">
           <h1 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
             We believe the work behind technology matters.
@@ -38,22 +38,25 @@ export default function AboutPage() {
           <div className="mt-8 space-y-4 text-lg leading-relaxed text-paper/70">
             <p>Kuvah Technologies was built around a simple belief:</p>
             <p className="text-xl font-medium text-paper">Technology should serve a purpose.</p>
-            <p>There is no shortage of things being built.</p>
-            <p>New apps. New websites. New platforms. New tools.</p>
-            <p>But building something is not the same as building something useful.</p>
-            <p>We believe good technology starts before development begins.</p>
-            <p>It starts with paying attention.</p>
-            <p>Understanding what people need.</p>
-            <p>Seeing where something isn&apos;t working.</p>
-            <p>And asking whether there&apos;s a better way.</p>
-            <p>That&apos;s how we approach our work.</p>
-            <p>We listen before we assume.</p>
-            <p>We ask questions before we prescribe solutions.</p>
-            <p>And we try to understand the bigger picture before focusing on the technology.</p>
-            <p>Because technology is only part of the answer.</p>
-            <p>The people using it matter.</p>
-            <p>The business behind it matters.</p>
-            <p>And the problem it exists to solve matters.</p>
+            <p>
+              There&apos;s no shortage of things being built — new apps, new websites, new
+              platforms, new tools. But building something isn&apos;t the same as building
+              something useful.
+            </p>
+            <p>
+              We believe good technology starts before development begins — with paying
+              attention, understanding what people need, seeing where something isn&apos;t
+              working, and asking whether there&apos;s a better way.
+            </p>
+            <p>
+              That&apos;s how we approach our work: we listen before we assume, ask questions
+              before we prescribe solutions, and try to understand the bigger picture before
+              focusing on the technology.
+            </p>
+            <p>
+              Because technology is only part of the answer — the people using it, the business
+              behind it, and the problem it exists to solve all matter too.
+            </p>
           </div>
         </Container>
       </section>
@@ -68,7 +71,7 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {VALUES.map((value, index) => (
               <div key={value.name} className="border border-ink/15 bg-paper p-8">
-                <span className="font-display text-sm font-semibold text-topaz-deep">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-topaz font-display text-sm font-bold text-ink">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 font-display text-2xl font-semibold text-ink">{value.name}</h3>
@@ -79,22 +82,22 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-topaz-deep py-24 text-paper sm:py-32">
+      <section className="bg-ink py-24 text-paper sm:py-32">
         <Container width="narrow">
           <h2 className="font-display text-4xl font-bold leading-[1.05] sm:text-6xl">
             Where we&apos;re going
           </h2>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/90">
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-paper/70">
             <p>
               We&apos;re building Kuvah into a technology company that creates useful products,
               supports ambitious businesses and continues to explore better ways of solving
               problems.
             </p>
-            <p>We&apos;re still growing.</p>
-            <p>Still learning.</p>
-            <p>Still figuring things out.</p>
-            <p>But we&apos;re serious about the work.</p>
-            <p className="text-xl font-medium text-paper">And we&apos;re just getting started.</p>
+            <p>
+              We&apos;re still growing, still learning, still figuring things out — but
+              we&apos;re serious about the work.
+            </p>
+            <p className="text-xl font-medium text-topaz">And we&apos;re just getting started.</p>
           </div>
         </Container>
       </section>

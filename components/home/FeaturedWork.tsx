@@ -32,7 +32,7 @@ export function FeaturedWork() {
             return (
               <Reveal
                 key={project.slug}
-                className="group flex h-full flex-col border border-ink/10 transition-colors hover:border-topaz hover:border-t-4 hover:border-t-topaz"
+                className="group flex h-full flex-col border border-ink/10 hover:-translate-y-1 hover:border-topaz hover:border-t-4 hover:border-t-topaz hover:shadow-[0_16px_40px_-12px_rgba(255,203,119,0.35)]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   {Graphic && (

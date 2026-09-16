@@ -27,7 +27,7 @@ export function Introduction() {
             </div>
           </Reveal>
           <Reveal className="lg:order-first">
-            <div className="border-l-4 border-topaz-deep bg-topaz p-8 sm:p-10">
+            <div className="border-l-4 border-ink bg-topaz p-8 sm:p-10">
               <p className="font-display text-3xl font-bold leading-[1.05] text-ink sm:text-4xl">
                 It&apos;s about whether it solves the right problem.
               </p>

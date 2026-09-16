@@ -9,10 +9,10 @@ describe("SectionDivider", () => {
   });
 
   it("applies the from/to background colors", () => {
-    const { container } = render(<SectionDivider from="bg-paper" to="bg-sky-deep" />);
+    const { container } = render(<SectionDivider from="bg-paper" to="bg-sky" />);
     const outer = container.firstChild as HTMLElement;
     expect(outer.className).toContain("bg-paper");
     const wedge = outer.firstChild as HTMLElement;
-    expect(wedge.className).toContain("bg-sky-deep");
+    expect(wedge.className).toContain("bg-sky");
   });
 });

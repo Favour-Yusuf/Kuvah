@@ -28,10 +28,11 @@ export default function WorkPage() {
             Work with a reason behind it.
           </h1>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-ink-muted">
-            <p>Every project starts with a different situation.</p>
-            <p>A business trying to sell online.</p>
-            <p>A company trying to serve customers better.</p>
-            <p>A team looking for a better way to manage communication.</p>
+            <p>
+              Every project starts with a different situation — a business trying to sell online,
+              a company trying to serve customers better, a team looking for a better way to
+              manage communication.
+            </p>
             <p>This is some of the work we&apos;ve helped bring to life.</p>
           </div>
         </Container>
@@ -47,7 +48,7 @@ export default function WorkPage() {
               return (
                 <article
                   key={project.slug}
-                  className="group flex h-full flex-col border border-ink/10 transition-colors hover:border-topaz hover:border-t-4 hover:border-t-topaz"
+                  className="group flex h-full flex-col border border-ink/10 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-topaz hover:border-t-4 hover:border-t-topaz hover:shadow-[0_16px_40px_-12px_rgba(255,203,119,0.35)]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {Graphic && (

@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 };
 
 const BAND_STYLES = {
-  "digital-experiences": { bg: "bg-paper", text: "text-ink", muted: "text-ink-muted", watermark: "text-ink/5", button: "primary" as const, tileBorder: "border-ink/15" },
+  "digital-experiences": { bg: "bg-ink", text: "text-paper", muted: "text-paper/70", watermark: "text-paper/10", button: "invert" as const, tileBorder: "border-paper/20" },
   "digital-products": { bg: "bg-mist", text: "text-ink", muted: "text-ink-muted", watermark: "text-ink/5", button: "primary" as const, tileBorder: "border-ink/15" },
-  "systems-automation": { bg: "bg-sky-deep", text: "text-paper", muted: "text-paper/70", watermark: "text-paper/10", button: "invert" as const, tileBorder: "border-paper/20" },
+  "systems-automation": { bg: "bg-ink", text: "text-paper", muted: "text-paper/70", watermark: "text-paper/10", button: "invert" as const, tileBorder: "border-paper/20" },
 } as const;
 
 export default function ServicesPage() {
@@ -26,9 +26,11 @@ export default function ServicesPage() {
             What are you trying to move forward?
           </h1>
           <div className="mt-6 space-y-4 text-lg leading-relaxed text-ink-muted">
-            <p>Technology can take many forms.</p>
-            <p>A website. A product. A better internal process. An automated workflow.</p>
-            <p>The right answer depends on what you&apos;re trying to achieve.</p>
+            <p>
+              Technology can take many forms — a website, a product, a better internal process,
+              an automated workflow. The right answer depends on what you&apos;re trying to
+              achieve.
+            </p>
             <p>Here&apos;s where we can help.</p>
           </div>
         </Container>

@@ -15,7 +15,7 @@ function buttonClasses(variant: Variant, className?: string) {
   const base =
     variant === "ghost"
       ? "inline-flex items-center text-sm font-semibold transition"
-      : "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition";
+      : "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition duration-200 ease-out hover:scale-[1.03] active:scale-[0.98]";
   return `${base} ${VARIANT_CLASSES[variant]} ${className ?? ""}`;
 }
 

@@ -6,9 +6,7 @@
   --color-paper: #ffffff;
   --color-mist: #f4f4f6;
   --color-topaz: #ffcb77;
-  --color-topaz-deep: #8a5a22;
   --color-sky: #5bc0eb;
-  --color-sky-deep: #164c63;
 
   --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -33,15 +31,55 @@
     outline-offset: 2px;
   }
 
-  .bg-ink :focus-visible,
-  .bg-sky-deep :focus-visible,
-  .bg-topaz-deep :focus-visible {
+  .bg-ink :focus-visible {
     outline-color: var(--color-topaz);
   }
 
   .numeral-watermark {
     font-size: clamp(6rem, 22vw, 14rem);
     line-height: 1;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 22s linear infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.08);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4.5s ease-in-out infinite;
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 40s linear infinite;
   }
 }
 

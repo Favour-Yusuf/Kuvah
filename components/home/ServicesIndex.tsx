@@ -18,7 +18,7 @@ export function ServicesIndex() {
           {services.map((service) => (
             <Reveal
               key={service.slug}
-              className="group flex h-full flex-col border border-ink/10 bg-paper p-8 transition-colors hover:border-topaz hover:border-t-4 hover:border-t-topaz"
+              className="group flex h-full flex-col border border-ink/10 bg-paper p-8 hover:-translate-y-1 hover:border-topaz hover:border-t-4 hover:border-t-topaz hover:shadow-[0_16px_40px_-12px_rgba(255,203,119,0.35)]"
             >
               <span className="font-display text-3xl font-bold text-topaz">{service.number}</span>
               <h3 className="mt-6 font-display text-2xl font-semibold text-ink">{service.name}</h3>

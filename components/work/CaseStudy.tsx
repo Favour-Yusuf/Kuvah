@@ -22,13 +22,15 @@ export function CaseStudy({ project }: { project: Project }) {
         {Graphic && <Graphic className="h-full w-full object-cover" />}
       </div>
 
-      <Container className="py-16 sm:py-24">
-        <p className="text-sm font-semibold uppercase tracking-wide text-topaz-deep">Case Study</p>
-        <p className="mt-4 text-sm font-semibold text-ink-muted">{client}</p>
-        <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold text-ink sm:text-6xl">
-          {headline}
-        </h1>
-      </Container>
+      <div className="bg-ink py-16 sm:py-24">
+        <Container>
+          <p className="text-sm font-semibold uppercase tracking-wide text-topaz">Case Study</p>
+          <p className="mt-4 text-sm font-semibold text-paper/70">{client}</p>
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold text-paper sm:text-6xl">
+            {headline}
+          </h1>
+        </Container>
+      </div>
 
       <Container width="narrow" className="space-y-12 pb-24">
         {narrative.challenge && (
