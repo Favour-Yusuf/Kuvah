@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
+import { ClientLogos } from "@/components/home/ClientLogos";
 import { Introduction } from "@/components/home/Introduction";
 import { ServicesIndex } from "@/components/home/ServicesIndex";
 import { Approach } from "@/components/home/Approach";
@@ -22,6 +23,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <ClientLogos />
       <TagStrip
         labels={["Digital Experiences", "Digital Products", "Systems & Automation", "Build with Purpose"]}
         tone="topaz"
