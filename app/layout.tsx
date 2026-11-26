@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/ui/SkipLink";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/data/site";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 // No production domain exists yet — do not add metadataBase or absolute
 // canonical/OG URLs until one is chosen.
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SkipLink />
         <Nav />
         <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+        <Analytics/>
           {children}
         </main>
         <Footer />
