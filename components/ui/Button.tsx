@@ -1,21 +1,33 @@
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "secondary-inverse" | "ghost" | "invert";
+// Brand buttons (§06, §13): 48px tall, 22px side padding, Inter 600,
+// radius 0, transitions under 200ms. One primary button per view.
+type Variant =
+  | "primary" // coral fill, on light grounds
+  | "primary-inverse" // coral fill, on oxblood grounds
+  | "dark" // oxblood fill, on coral or sand grounds
+  | "secondary" // 2px oxblood outline, on light grounds
+  | "secondary-inverse" // 2px paper outline, on oxblood grounds
+  | "invert" // paper fill, on oxblood grounds
+  | "ghost"; // oxblood text, coral underline
 
 const VARIANT_CLASSES: Record<Variant, string> = {
-  primary: "bg-ink text-paper hover:bg-topaz hover:text-ink",
-  secondary: "bg-transparent text-ink border border-ink/20 hover:border-ink",
-  "secondary-inverse": "bg-transparent text-paper border border-paper/30 hover:border-paper",
-  ghost: "bg-transparent text-ink underline underline-offset-4 decoration-topaz decoration-2 px-0 py-0",
-  invert: "bg-paper text-ink hover:bg-ink hover:text-paper",
+  primary: "bg-coral text-oxblood hover:bg-oxblood hover:text-paper",
+  "primary-inverse": "bg-coral text-oxblood hover:bg-paper",
+  dark: "bg-oxblood text-paper hover:bg-paper hover:text-oxblood",
+  secondary: "border-2 border-oxblood text-oxblood hover:bg-oxblood hover:text-paper",
+  "secondary-inverse": "border-2 border-paper text-paper hover:bg-paper hover:text-oxblood",
+  invert: "bg-paper text-oxblood hover:bg-coral",
+  ghost:
+    "text-oxblood underline decoration-coral decoration-2 underline-offset-[5px] hover:decoration-oxblood",
 };
 
 function buttonClasses(variant: Variant, className?: string) {
   const base =
     variant === "ghost"
-      ? "inline-flex items-center text-sm font-semibold transition"
-      : "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition duration-200 ease-out hover:scale-[1.03] active:scale-[0.98]";
+      ? "inline-flex items-center gap-2 text-[15px] font-semibold transition-colors duration-150"
+      : "inline-flex min-h-12 items-center justify-center gap-2 px-[22px] text-[15px] font-semibold transition-colors duration-150";
   return `${base} ${VARIANT_CLASSES[variant]} ${className ?? ""}`;
 }
 

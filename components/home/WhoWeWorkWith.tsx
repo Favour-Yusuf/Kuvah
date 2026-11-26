@@ -1,68 +1,44 @@
-import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
+import { DotList } from "@/components/ui/DotList";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
-const AUDIENCES = [
-  {
-    name: "Businesses growing beyond their current setup",
-    body: [
-      "You may have outgrown your current website, need a better customer experience or have a process that is becoming difficult to manage.",
-      "We help you identify what needs to change and build around it.",
-    ],
-  },
-  {
-    name: "Founders turning an opportunity into a product",
-    body: [
-      "You see something that could exist and want to bring it to life.",
-      "We help you think through the first version and focus on what matters before trying to build everything.",
-    ],
-  },
-  {
-    name: "Teams trying to work better",
-    body: [
-      "Your team has a process that takes too much time, involves too many steps or simply isn't working as well as it should.",
-      "We explore whether a better system or automation can help.",
-    ],
-  },
+const CLIENT_TYPES = [
+  "Agencies and creative studios",
+  "Consulting and professional service firms",
+  "Recruitment and talent companies",
+  "Technology and software companies",
+  "Other businesses built around delivering services",
 ];
 
 export function WhoWeWorkWith() {
   return (
-    <section className="bg-mist py-20 sm:py-28">
-      <Container>
-        <Reveal className="max-w-2xl">
-          <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
-            You don&apos;t need to fit into a box to work with us.
+    <section aria-labelledby="who-heading" className="bg-paper">
+      <div className="page-container grid gap-12 py-20 md:py-28 lg:grid-cols-12 lg:gap-6">
+        <div className="flex flex-col gap-6 lg:col-span-5">
+          <SectionLabel>Who we work with</SectionLabel>
+          <h2 id="who-heading" className="font-display text-h2 font-semibold text-balance">
+            Built around the realities of service businesses.
           </h2>
-          <p className="mt-4 text-lg text-ink-muted">
-            But most of the people we work with are trying to move something forward.
+          <p className="max-w-[48ch] text-body text-pretty">
+            We work with service-based businesses that want to spend less time managing operational
+            complexity and more time delivering value to their customers.
           </p>
-        </Reveal>
-
-        <div className="mt-16 divide-y divide-ink/15 border-t border-ink/15">
-          {AUDIENCES.map((audience) => (
-            <div
-              key={audience.name}
-              tabIndex={0}
-              className="group border-l-4 border-transparent py-8 pl-6 transition-colors hover:border-topaz focus-within:border-topaz sm:py-10"
-            >
-              <Reveal>
-                <h3 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
-                  {audience.name}
-                </h3>
-                <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus-within:grid-rows-[1fr]">
-                  <div className="overflow-hidden">
-                    <div className="mt-4 max-w-xl space-y-3 text-base leading-relaxed text-ink-muted">
-                      {audience.body.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          ))}
         </div>
-      </Container>
+
+        <div className="flex flex-col gap-8 lg:col-span-6 lg:col-start-7">
+          <div>
+            <p className="text-label font-semibold uppercase">This includes</p>
+            <DotList
+              items={CLIENT_TYPES}
+              className="mt-4 border-t-2 border-oxblood"
+              itemClassName="border-b border-stone py-5 font-heading text-h3 font-semibold"
+            />
+          </div>
+          <p className="max-w-[56ch] text-lead text-pretty">
+            Whether you&apos;re trying to improve an existing process or build an entirely new system,
+            we&apos;re interested in understanding the problem.
+          </p>
+        </div>
+      </div>
     </section>
   );
 }

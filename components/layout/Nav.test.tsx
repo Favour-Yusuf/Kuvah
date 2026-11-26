@@ -4,15 +4,14 @@ import userEvent from "@testing-library/user-event";
 import { Nav } from "./Nav";
 
 describe("Nav", () => {
-  it("renders the Kuvah logo lockup and the five primary links and Start a Project CTA", () => {
+  it("renders the logo as a home link, the primary links and Contact", () => {
     render(<Nav />);
+    expect(screen.getByRole("link", { name: "Kuvah home" })).toHaveAttribute("href", "/");
     expect(screen.getByAltText("Kuvah")).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: "Work" })[0]).toHaveAttribute("href", "/work");
     expect(screen.getAllByRole("link", { name: "Services" })[0]).toHaveAttribute("href", "/services");
-    expect(screen.getAllByRole("link", { name: "Pricing" })[0]).toHaveAttribute("href", "/pricing");
     expect(screen.getAllByRole("link", { name: "About" })[0]).toHaveAttribute("href", "/about");
-    expect(screen.getAllByRole("link", { name: "Insights" })[0]).toHaveAttribute("href", "/insights");
-    expect(screen.getAllByRole("link", { name: "Start a Project" })[0]).toHaveAttribute(
+    expect(screen.getAllByRole("link", { name: "Resources" })[0]).toHaveAttribute("href", "/resources");
+    expect(screen.getAllByRole("link", { name: "Contact" })[0]).toHaveAttribute(
       "href",
       "/start-a-project"
     );

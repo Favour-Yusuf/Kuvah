@@ -1,43 +1,33 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { preload } from "react-dom";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/ui/SkipLink";
-import { SITE_DESCRIPTION } from "@/lib/data/site";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/data/site";
 import "./globals.css";
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-bricolage",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 // No production domain exists yet — do not add metadataBase or absolute
 // canonical/OG URLs until one is chosen.
 export const metadata: Metadata = {
   title: {
-    default: "Kuvah Technologies",
-    template: "%s — Kuvah Technologies",
+    default: SITE_NAME,
+    template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  icons: {
-    icon: "/kuvah-icon-black.png",
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  // The hero headline (Fraunces) and body (Inter) render above the fold;
+  // preload their latin subsets. Faces are declared in globals.css.
+  preload("/fonts/web/Fraunces-latin.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
+  preload("/fonts/web/Inter-latin.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
+
   return (
-    <html lang="en" className={`${bricolage.variable} ${inter.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-paper font-sans text-ink">
+    <html lang="en" className="h-full antialiased">
+      <body className="flex min-h-full flex-col bg-paper font-sans text-oxblood">
         <SkipLink />
         <Nav />
-        <main id="main-content" tabIndex={-1} className="flex-1">
+        <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
           {children}
         </main>
         <Footer />

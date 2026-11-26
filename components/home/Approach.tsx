@@ -1,65 +1,64 @@
-import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const STEPS = [
   {
     name: "Understand",
-    question: "What's happening now?",
-    body: "We learn about your business, your users and the problem you're trying to solve.",
+    body: "We learn how your business works, what you're trying to achieve and where the problems are.",
   },
   {
-    name: "Clarify",
-    question: "What actually needs to change?",
-    body: "We work through the priorities and define what should be built first.",
+    name: "Identify",
+    body: "We uncover bottlenecks, unnecessary manual work and opportunities for improvement.",
   },
   {
-    name: "Build",
-    question: "Turn the idea into something real.",
-    body: "We design, develop and bring the solution to life.",
+    name: "Design",
+    body: "We map out a practical solution that fits your business, team and budget.",
+  },
+  {
+    name: "Implement",
+    body: "We build, configure and integrate the technology needed to make it work.",
   },
   {
     name: "Improve",
-    question: "The first version is rarely the final answer.",
-    body: "We learn from the product, the people using it and the business around it to identify what comes next.",
+    body: "We help you monitor, maintain and optimise your systems as your business evolves.",
   },
-];
+] as const;
 
 export function Approach() {
   return (
-    <section className="bg-ink py-20 text-paper sm:py-28">
-      <Container>
-        <Reveal className="max-w-2xl">
-          <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-            We don&apos;t jump straight into development.
-          </h2>
-          <p className="mt-4 text-lg text-paper/70">
-            Writing code is only one part of building something well. Before that, there are
-            questions worth answering.
-          </p>
-        </Reveal>
+    <section aria-labelledby="approach-heading" className="bg-oxblood text-paper">
+      <div className="page-container py-20 md:py-28">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-6">
+          <div className="lg:col-span-7">
+            <SectionLabel>Our approach</SectionLabel>
+            <h2 id="approach-heading" className="mt-5 font-display text-h2 font-semibold text-balance">
+              We don&apos;t start with technology. We start with your business.
+            </h2>
+          </div>
+          <div className="flex max-w-[52ch] flex-col gap-4 text-body text-pretty lg:col-span-4 lg:col-start-9">
+            <p>
+              Every business has its own processes, challenges and priorities. That&apos;s why we
+              don&apos;t believe in forcing every problem into the same software or automation tool.
+            </p>
+            <p className="font-semibold">Our approach is simple:</p>
+          </div>
+        </div>
 
-        <ol className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {STEPS.map((step, index) => (
-            <Reveal as="li" key={step.name} className="border border-paper/15 p-6">
+        <ol className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+          {STEPS.map((step, i) => (
+            <li key={step.name} className="relative flex flex-col gap-3 border-t-2 border-paper pt-8">
               <span
                 aria-hidden="true"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-topaz font-display text-sm font-bold text-ink"
-              >
-                {String(index + 1).padStart(2, "0")}
+                className="absolute -top-[7px] left-0 size-3 rounded-full bg-paper"
+              />
+              <span className="font-display text-h2 font-semibold tabular-nums" aria-hidden="true">
+                {i + 1}
               </span>
-              <h3 className="mt-6 font-display text-2xl font-semibold">{step.name}</h3>
-              <p className="mt-3 text-base font-medium text-paper/90">{step.question}</p>
-              <p className="mt-2 text-base leading-relaxed text-paper/70">{step.body}</p>
-            </Reveal>
+              <h3 className="font-heading text-h3 font-semibold">{step.name}</h3>
+              <p className="text-body text-pretty">{step.body}</p>
+            </li>
           ))}
         </ol>
-
-        <Reveal className="mt-16 border-t border-paper/20 pt-8">
-          <p className="max-w-xl font-display text-xl font-medium">
-            Good work starts with understanding what needs to change.
-          </p>
-        </Reveal>
-      </Container>
+      </div>
     </section>
   );
 }

@@ -1,38 +1,169 @@
 @import "tailwindcss";
 
-@theme {
-  --color-ink: #1e1e2f;
-  --color-ink-muted: #6b6b7d;
-  --color-paper: #ffffff;
-  --color-mist: #f4f4f6;
-  --color-topaz: #ffcb77;
-  --color-sky: #5bc0eb;
+/* ------------------------------------------------------------------ */
+/* Fonts: self-hosted from /public/fonts/web (SIL OFL 1.1).            */
+/* Split by unicode-range so latin-ext only downloads when needed.     */
+/* ------------------------------------------------------------------ */
 
-  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/web/Fraunces-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/web/Fraunces-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/web/Fraunces-Italic-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/web/Fraunces-Italic-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/web/Inter-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/web/Inter-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/web/Inter-Italic-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/web/Inter-Italic-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@theme {
+  /* Brand colours (guidelines §06). No other colours. */
+  --color-oxblood: #2b0b13;
+  --color-paper: #f7f4ef;
+  --color-coral: #f4623f;
+  --color-sand: #eddea4;
+  --color-yellow: #ffe45c;
+  --color-stone: #d8cfc6;
+  --color-mute: #6a5458;
+
+  /* Legacy names still used by pages not yet rebranded (services, about,
+     work, pricing, insights, start-a-project, 404). Mapped to the nearest
+     brand colour; remove once those pages move to the brand names. */
+  --color-ink: #2b0b13;
+  --color-ink-muted: #6a5458;
+  --color-mist: #eddea4;
+  --color-topaz: #ffe45c;
+  --color-sky: #f4623f;
+
+  /* Fraunces speaks, Inter explains (§07). */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-display--font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 72;
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-heading--font-variation-settings: "SOFT" 0, "WONK" 0;
+  --font-sans: "Inter", Arial, sans-serif;
+
+  /* Type scale (§07): desktop / mobile, fluid between. */
+  --text-display: clamp(3.5rem, 7vw, 6rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.03em;
+  --text-h1: clamp(2.75rem, 5.6vw, 4.5rem);
+  --text-h1--line-height: 1;
+  --text-h1--letter-spacing: -0.025em;
+  --text-h2: clamp(2rem, 3.6vw, 3rem);
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: clamp(1.375rem, 2vw, 1.75rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.01em;
+  --text-lead: clamp(1.125rem, 1.4vw, 1.25rem);
+  --text-lead--line-height: 1.5;
+  --text-body: clamp(1rem, 1.1vw, 1.0625rem);
+  --text-body--line-height: 1.6;
+  --text-caption: clamp(0.8125rem, 1vw, 0.875rem);
+  --text-caption--line-height: 1.45;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+
+  /* Rules (§08): heavy band, structural, quiet. */
+  --spacing-rule-heavy: 8px;
+}
+
+/* Web grid (§10): 1200px content, outer margin clamp(20px, 5vw, 64px). */
+@utility page-container {
+  --page-margin: clamp(20px, 5vw, 64px);
+  width: 100%;
+  margin-inline: auto;
+  max-width: calc(1200px + 2 * var(--page-margin));
+  padding-inline: var(--page-margin);
 }
 
 @layer base {
   html {
     color-scheme: light;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-paper text-ink font-sans;
+    @apply bg-paper text-oxblood font-sans;
+    font-optical-sizing: auto;
   }
 
   ::selection {
-    background-color: var(--color-topaz);
-    color: var(--color-ink);
+    background-color: var(--color-yellow);
+    color: var(--color-oxblood);
   }
 
+  /* Focus (§12): 3px oxblood outline, 3px offset; paper on oxblood. */
   :focus-visible {
-    outline: 2px solid var(--color-ink);
-    outline-offset: 2px;
+    outline: 3px solid var(--color-oxblood);
+    outline-offset: 3px;
   }
 
-  .bg-ink :focus-visible {
-    outline-color: var(--color-topaz);
+  :where(.bg-oxblood, .bg-ink) :focus-visible {
+    outline-color: var(--color-paper);
   }
 
   .numeral-watermark {
@@ -52,38 +183,13 @@
   .animate-marquee {
     animation: marquee 22s linear infinite;
   }
-
-  @keyframes pulse-glow {
-    0%,
-    100% {
-      opacity: 0.55;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.9;
-      transform: scale(1.08);
-    }
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 4.5s ease-in-out infinite;
-  }
-
-  @keyframes spin-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  .animate-spin-slow {
-    animation: spin-slow 40s linear infinite;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
@@ -91,6 +197,5 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
-    scroll-behavior: auto !important;
   }
 }

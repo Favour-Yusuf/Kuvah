@@ -27,7 +27,15 @@ describe("LinkButton", () => {
     );
     const link = screen.getByRole("link", { name: "Start a Project" });
     expect(link.className).toContain("bg-paper");
-    expect(link.className).toContain("text-ink");
+    expect(link.className).toContain("text-oxblood");
+  });
+
+  it("defaults to the coral primary and never rounds corners", () => {
+    render(<LinkButton href="/start-a-project">Talk to us</LinkButton>);
+    const link = screen.getByRole("link", { name: "Talk to us" });
+    expect(link.className).toContain("bg-coral");
+    expect(link.className).toContain("min-h-12");
+    expect(link.className).not.toContain("rounded");
   });
 });
 

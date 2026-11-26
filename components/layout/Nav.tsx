@@ -5,14 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LinkButton } from "@/components/ui/Button";
+import { CONTACT_HREF, PRIMARY_LINKS, isActivePath } from "@/lib/data/site";
 
-const NAV_LINKS = [
-  { label: "Work", href: "/work" },
-  { label: "Services", href: "/services" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/about" },
-  { label: "Insights", href: "/insights" },
-];
+// Active item: coral 2px underline; links Inter 500 15px (§13).
+const LINK_CLASSES =
+  "text-[15px] font-medium text-paper underline decoration-2 underline-offset-[6px] decoration-transparent transition-colors duration-150 hover:decoration-paper aria-[current=page]:decoration-coral";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -33,33 +30,39 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur">
-      <div className="mx-auto flex max-w-[1320px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2" aria-label="Kuvah home">
-          <Image src="/kuvah-lockup-black.png" alt="Kuvah" width={29} height={40} priority />
+    <header className="sticky top-0 z-50 bg-oxblood text-paper">
+      <div className="page-container flex h-[72px] items-center justify-between gap-6">
+        <Link href="/" aria-label="Kuvah home" className="shrink-0">
+          <Image
+            src="/logos/SVG/kuvah-logo-primary-reverse.svg"
+            alt="Kuvah"
+            width={106}
+            height={26}
+            priority
+            unoptimized
+          />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
+        <nav aria-label="Primary" className="hidden items-center gap-9 md:flex">
+          {PRIMARY_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              aria-current={pathname === link.href ? "page" : undefined}
-              className="relative text-sm font-medium text-ink after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-topaz after:transition-all after:duration-300 hover:after:w-full aria-[current=page]:after:w-full"
+              aria-current={isActivePath(pathname, link.href) ? "page" : undefined}
+              className={LINK_CLASSES}
             >
               {link.label}
             </Link>
           ))}
+          <LinkButton href={CONTACT_HREF} variant="secondary-inverse" className="min-h-11">
+            Contact
+          </LinkButton>
         </nav>
-
-        <LinkButton href="/start-a-project" className="hidden md:inline-flex">
-          Start a Project
-        </LinkButton>
 
         <button
           ref={toggleRef}
           type="button"
-          className="inline-flex items-center rounded-full border border-ink/20 px-3 py-2 text-sm font-medium text-ink md:hidden"
+          className="inline-flex min-h-11 items-center border-2 border-paper px-4 text-sm font-semibold text-paper md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((prev) => !prev)}
@@ -69,27 +72,28 @@ export function Nav() {
       </div>
 
       {open && (
-        <nav
-          id="mobile-nav"
-          aria-label="Primary mobile"
-          className="border-t border-ink/10 bg-paper px-4 py-6 md:hidden"
-        >
-          <ul className="flex flex-col gap-4">
-            {NAV_LINKS.map((link) => (
+        <nav id="mobile-nav" aria-label="Primary mobile" className="md:hidden">
+          <ul className="page-container flex flex-col gap-1 py-6">
+            {PRIMARY_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  aria-current={pathname === link.href ? "page" : undefined}
-                  className="block text-base font-medium text-ink relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-topaz after:transition-all after:duration-300 hover:after:w-full aria-[current=page]:after:w-full"
+                  aria-current={isActivePath(pathname, link.href) ? "page" : undefined}
+                  className={`${LINK_CLASSES} flex min-h-11 items-center text-lg`}
                   onClick={closeMenu}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <LinkButton href="/start-a-project" onClick={closeMenu} className="mt-2 w-full">
-                Start a Project
+            <li className="mt-4">
+              <LinkButton
+                href={CONTACT_HREF}
+                variant="secondary-inverse"
+                onClick={closeMenu}
+                className="w-full"
+              >
+                Contact
               </LinkButton>
             </li>
           </ul>

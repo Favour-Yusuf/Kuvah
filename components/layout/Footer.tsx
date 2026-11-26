@@ -1,53 +1,71 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
 import { socialLinks } from "@/lib/data/social";
+import { CONTACT_HREF, PRIMARY_LINKS, SITE_NAME, SITE_TAGLINE } from "@/lib/data/site";
 
-const FOOTER_LINKS = [
-  { label: "Work", href: "/work" },
-  { label: "Services", href: "/services" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/about" },
-  { label: "Insights", href: "/insights" },
-  { label: "Start a Project", href: "/start-a-project" },
-];
+const LINK_CLASSES =
+  "text-[15px] font-medium text-paper underline decoration-coral decoration-2 underline-offset-[5px] transition-colors duration-150 hover:decoration-paper";
 
 export function Footer() {
+  const linkedIn = socialLinks.find((social) => social.name === "LinkedIn");
+
   return (
-    <footer className="border-t border-ink/10 bg-mist">
-      <Container className="grid gap-12 py-16 sm:grid-cols-[1.5fr_1fr_1fr]">
-        <div>
-          <Link href="/" className="flex items-center gap-2" aria-label="Kuvah home">
-            <Image src="/kuvah-lockup-black.png" alt="Kuvah Technologies" width={41} height={56} />
+    <footer className="bg-oxblood text-paper">
+      <div className="page-container grid gap-12 pb-12 pt-16 md:grid-cols-12 md:gap-6 md:pt-24">
+        <div className="flex flex-col gap-6 md:col-span-7">
+          <Link href="/" aria-label="Kuvah home" className="w-fit">
+            <Image
+              src="/logos/SVG/kuvah-logo-primary-reverse.svg"
+              alt="Kuvah"
+              width={146}
+              height={36}
+              unoptimized
+            />
           </Link>
-          <p className="mt-4 max-w-xs text-base text-ink-muted">
-            Websites, digital products and systems for businesses and founders.
+          <p className="font-display text-h2 font-semibold">
+            {/* One sentence per line, so the phrase never breaks mid-way. */}
+            {SITE_TAGLINE.split(". ").map((part, i, all) => (
+              <span key={part} className="block">
+                {i < all.length - 1 ? `${part}.` : part}
+              </span>
+            ))}
           </p>
-          <p className="mt-8 text-sm font-medium text-ink-muted">Build with light.</p>
+          <p className="max-w-[44ch] text-body">
+            We help service-based businesses solve operational problems through technology.
+          </p>
         </div>
 
-        <nav aria-label="Footer" className="flex flex-col gap-3">
-          {FOOTER_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="relative w-fit text-sm font-medium text-ink after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-topaz after:transition-all after:duration-300 hover:after:w-full">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <ul className="flex flex-col gap-3">
-          {socialLinks.map((social) => (
-            <li key={social.name}>
-              {social.href ? (
-                <a href={social.href} className="text-sm font-medium text-ink hover:text-ink/70">
-                  {social.name}
+        <nav aria-label="Footer" className="md:col-span-4 md:col-start-9 md:self-end">
+          <ul className="flex flex-wrap gap-x-8 gap-y-4">
+            {PRIMARY_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={LINK_CLASSES}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href={CONTACT_HREF} className={LINK_CLASSES}>
+                Contact
+              </Link>
+            </li>
+            <li>
+              {linkedIn?.href ? (
+                <a href={linkedIn.href} className={LINK_CLASSES}>
+                  LinkedIn
                 </a>
               ) : (
-                <span className="text-sm font-medium text-ink-muted">{social.name}</span>
+                // No profile URL yet: shown as a label, not a dead link.
+                <span className="text-[15px] font-medium text-paper">LinkedIn</span>
               )}
             </li>
-          ))}
-        </ul>
-      </Container>
+          </ul>
+        </nav>
+      </div>
+
+      <div className="page-container">
+        <div className="border-t-2 border-paper py-6 text-caption">{SITE_NAME}</div>
+      </div>
     </footer>
   );
 }
